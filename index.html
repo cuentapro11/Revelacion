@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Baby Gender Reveal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<!-- Modal de bienvenida -->
+<div id="welcomeModal" class="modal-overlay">
+  <div class="welcome-hero">
+    <h1 class="welcome-title">Bienvenido a la revelación de género<br>del Bebé de José y Fernanda</h1>
+    <p class="welcome-note">La música es parte de la experiencia</p>
+    <div class="welcome-actions">
+      <button id="enterWithMusic" class="btn-gold" onclick="enterWithMusicClick()">Ingresar con música</button>
+      <button id="enterWithoutMusic" class="btn-gold-outline" onclick="enterWithoutMusicClick()">Ingresar sin música</button>
+    </div>
+  </div>
+</div>
+
+<!-- Reproductor de música -->
+<div id="musicPlayer" class="music-player" style="display: none;">
+  <button id="musicToggle" class="music-button" title="Reproducir/Pausar música">
+    <svg id="volumeIcon" width="20" height="20" viewBox="0 0 24 24" fill="none">
+      <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" fill="#1f3864" stroke="#fff" stroke-width="1"></polygon>
+      <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.08" stroke="#1f3864" stroke-width="2"></path>
+      <circle cx="6.5" cy="12" r="1" fill="#ec6e9a"/>
+    </svg>
+  </button>
+  <div id="youtube-player" style="position: absolute; top: -9999px; left: -9999px; width: 1px; height: 1px; opacity: 0; pointer-events: none;"></div>
+</div>
+
+<div class="scroller">
+<div class="section" id="s1"><img class="new-cloud nc-tl" src="" data-img="img2" alt=""><img class="new-cloud nc-tr" src="" data-img="img2" alt=""><img class="new-cloud nc-l" src="" data-img="img3" alt=""><img class="new-cloud nc-r" src="" data-img="img2" alt=""><img class="new-cloud nc-bl" src="" data-img="img2" alt=""><img class="new-cloud nc-br" src="" data-img="img3" alt="">
+
+  <img class="balloon balloon-blue bl-1" src="" data-img="img4">
+  <img class="balloon balloon-blue bl-2" src="" data-img="img4">
+  <img class="balloon balloon-pink bp-1" src="" data-img="img5">
+  <img class="balloon balloon-pink bp-2" src="" data-img="img5">
+
+  <span class="deco" style="top:6%;left:7%;"><img class="deco-img" src="" data-img="img6" alt=""></span>
+  <span class="deco" style="top:28%;right:7%;"><img class="deco-img" src="" data-img="img6" alt=""></span>
+
+  <div class="heading">
+    <p class="pre">Un pequeño ser está por llegar...</p>
+    <h1>BABY <span class="pink">Gender</span> Reveal</h1>
+    <p class="sub">Pequeños latidos, grandes emociones</p>
+    <a href="#s2" class="btn">¡Estás invitado!</a>
+  </div>
+
+  <div class="bears-wrap">
+    <img src="" data-img="img7">
+  </div>
+
+  <div class="scroll-hint">⌄</div>
+  
+</div>
+
+<div class="section" id="s2">
+  <span class="extra-cloud pink ec1"></span>
+  <span class="extra-cloud blue ec2"></span>
+  <span class="extra-cloud blue ec3"></span>
+  <span class="extra-cloud pink ec4"></span>
+  <span class="extra-cloud blue ec5"></span>
+  <span class="extra-cloud pink ec6"></span>
+  <span class="deco" style="top:7%;left:18%;"><img class="deco-img" src="" data-img="img6" alt=""></span>
+  <span class="deco" style="top:18%;left:4%;"><img class="deco-img deco-pink" src="" data-img="img8" alt=""></span>
+  <span class="deco" style="top:6%;right:5%;"><img class="deco-img deco-pink" src="" data-img="img8" alt=""></span>
+  <span class="deco" style="top:31%;right:6%;"><img class="deco-img" src="" data-img="img6" alt=""></span>
+  <span class="deco" style="top:57%;left:8%;"><img class="deco-img" src="" data-img="img6" alt=""></span>
+  <span class="deco" style="top:69%;right:18%;"><img class="deco-img deco-pink" src="" data-img="img8" alt=""></span>
+  <span class="deco" style="top:78%;left:27%;"><img class="deco-img" src="" data-img="img9" alt=""></span>
+
+  <div class="heading">
+    <h1>Cuenta regresiva</h1>
+    <p>¡Ya casi lo descubrimos!</p>
+  </div>
+
+  <div class="boxes">
+    <div class="box blue"><div class="num" id="cd-d">25</div><div class="label">Días</div></div>
+    <div class="box pink"><div class="num" id="cd-h">08</div><div class="label">Horas</div></div>
+    <div class="box blue"><div class="num" id="cd-m">32</div><div class="label">Min</div></div>
+    <div class="box pink"><div class="num" id="cd-s">19</div><div class="label">Seg</div></div>
+  </div>
+
+  <p class="quote">La vida nos regala una nueva historia y queremos compartir contigo este momento tan especial.</p>
+
+  <div class="moonscene">
+    <img src="" data-img="img10">
+  </div>
+
+  <p class="closing">Será un día lleno de amor, ilusión y grandes sorpresas...</p>
+</div>
+
+<div class="section" id="s3">
+  <span class="extra-cloud pink ec1"></span>
+  <span class="extra-cloud blue ec2"></span>
+  <span class="extra-cloud blue ec3"></span>
+  <span class="extra-cloud pink ec4"></span>
+  <span class="extra-cloud pink ec5"></span>
+  <span class="extra-cloud blue ec6"></span>
+  <span class="extra-cloud pink ec7"></span>
+  <span class="extra-cloud blue ec8"></span>
+  <span class="extra-cloud pink ec9"></span>
+  <span class="extra-cloud blue ec10"></span>
+  <span class="deco" style="top:10%;right:8%;"><img class="deco-img" src="" data-img="img6" alt=""></span>
+  <span class="deco" style="top:25%;left:6%;"><img class="deco-img deco-pink" src="" data-img="img8" alt=""></span>
+  <span class="deco" style="top:39%;right:20%;"><img class="deco-img" src="" data-img="img6" alt=""></span>
+  <span class="deco" style="top:57%;left:16%;"><img class="deco-img" src="" data-img="img9" alt=""></span>
+  <span class="deco" style="top:72%;right:7%;"><img class="deco-img deco-pink" src="" data-img="img8" alt=""></span>
+
+  <div class="card">
+    <div class="row"><span class="icon"><svg viewBox="0 0 48 48" fill="none" stroke="#ec6e9a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="10" width="36" height="32" rx="6"/><line x1="6" y1="19" x2="42" y2="19"/><line x1="15" y1="5" x2="15" y2="13"/><line x1="33" y1="5" x2="33" y2="13"/><rect x="13" y="25" width="6" height="6" rx="1.5" fill="#ec6e9a" stroke="none"/><rect x="21" y="25" width="6" height="6" rx="1.5" fill="#ec6e9a" stroke="none"/><rect x="29" y="25" width="6" height="6" rx="1.5" fill="#ec6e9a" stroke="none"/></svg></span><span class="txt">Sábado 17 de mayo, 2026</span></div>
+    <div class="row"><span class="icon"><svg viewBox="0 0 48 48" fill="none" stroke="#ec6e9a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="18"/><line x1="24" y1="24" x2="24" y2="13"/><line x1="24" y1="24" x2="32" y2="27"/></svg></span><span class="txt">4:00 p.m.</span></div>
+    <div class="row"><span class="icon"><svg viewBox="0 0 48 48" fill="none" stroke="#ec6e9a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M24 44C24 44 38 30.5 38 19C38 10.7 31.7 4 24 4C16.3 4 10 10.7 10 19C10 30.5 24 44 24 44Z"/><circle cx="24" cy="19" r="6"/></svg></span><span class="txt">Salón Jardines del Sol<br>Santo Domingo, RD</span></div>
+  </div>
+
+  <div class="mapscene">
+    <img src="" data-img="img11">
+  </div>
+
+  <div class="maps-btn-wrap">
+    <a href="https://maps.google.com" class="maps-btn">📍 Ver en Google Maps</a>
+  </div>
+</div>
+
+<div class="section" id="s4">
+  <span class="extra-cloud pink ec1"></span>
+  <span class="extra-cloud blue ec2"></span>
+  <span class="extra-cloud blue ec3"></span>
+  <span class="extra-cloud pink ec4"></span>
+  <span class="extra-cloud pink ec5"></span>
+  <span class="extra-cloud blue ec6"></span>
+  <span class="extra-cloud blue ec7"></span>
+  <span class="extra-cloud pink ec8"></span>
+  <span class="extra-cloud pink ec9"></span>
+  <span class="extra-cloud blue ec10"></span>
+  <span class="extra-cloud blue ec11"></span>
+  <span class="extra-cloud pink ec12"></span>
+  <span class="deco" style="top:6%;left:21%;"><img class="deco-img" src="" data-img="img6" alt=""></span>
+  <span class="deco" style="top:16%;right:7%;"><img class="deco-img deco-pink" src="" data-img="img8" alt=""></span>
+  <span class="deco" style="top:43%;left:5%;"><img class="deco-img" src="" data-img="img6" alt=""></span>
+  <span class="deco" style="top:49%;right:17%;"><img class="deco-img" src="" data-img="img9" alt=""></span>
+  <span class="deco" style="bottom:7%;left:22%;"><img class="deco-img deco-pink" src="" data-img="img8" alt=""></span>
+  <span class="deco" style="bottom:3%;right:6%;"><img class="deco-img" src="" data-img="img6" alt=""></span>
+
+  <div class="heading">
+    <h1>Dress Code</h1>
+    <p>Usa un look cómodo y fresco.</p>
+  </div>
+
+  <div class="palette">
+    <div class="swatch" style="background:#6fb3e0;"></div>
+    <div class="swatch" style="background:#f0a0c0;"></div>
+    <div class="swatch" style="background:#d8b48c;"></div>
+    <div class="swatch" style="background:#a8d5b5;"></div>
+    <div class="swatch" style="background:#ffffff;"></div>
+  </div>
+
+  <div class="hanger-note">
+    <svg viewBox="0 0 48 48" fill="none" stroke="#ec6e9a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="24" cy="8" r="3"/>
+      <path d="M24 11 L24 16"/>
+      <path d="M24 16 C10 16 4 26 4 32 L44 32 C44 26 38 16 24 16Z"/>
+    </svg>
+    <span>Colores pastel<br>son bienvenidos</span>
+  </div>
+
+  <div class="clothesline">
+    <img src="" data-img="img12">
+  </div>
+
+  <p class="closing">¡La comodidad también celebra!</p>
+</div>
+
+<div class="section" id="s5">
+  <span class="extra-cloud pink ec1"></span>
+  <span class="extra-cloud blue ec2"></span>
+  <span class="extra-cloud blue ec3"></span>
+  <span class="extra-cloud pink ec4"></span>
+  <span class="extra-cloud blue ec5"></span>
+  <span class="extra-cloud pink ec6"></span>
+  <span class="extra-cloud blue ec7"></span>
+  <span class="deco" style="top:7%;right:19%;"><img class="deco-img" src="" data-img="img6" alt=""></span>
+  <span class="deco" style="top:18%;left:6%;"><img class="deco-img deco-pink" src="" data-img="img8" alt=""></span>
+
+  <div class="status" id="status"></div>
+
+  <div class="heading">
+    <h1>Elige tu Team</h1>
+    <p>¿Qué crees que será?</p>
+  </div>
+
+  <div class="vote-zone">
+    <button class="balloon-btn" id="btn-nino" aria-label="Team Niño">
+      <img src="" data-img="img13">
+      <span class="pulse-ring"></span>
+      
+    </button>
+    <button class="balloon-btn" id="btn-nina" aria-label="Team Niña">
+      <img src="" data-img="img14">
+      <span class="pulse-ring"></span>
+      
+    </button>
+  </div>
+
+  <p class="caption">Toca tu opción y sé parte de la emoción</p>
+
+  <div class="bring-note" id="bringNote">
+    <div class="big-emoji" id="bringEmoji">💙</div>
+    <p class="title" id="bringTitle">¡Votaste por Team Niño!</p>
+    <p class="item" id="bringItem">Para apoyar a tu team,<br>te toca traer <b>toallitas húmedas</b></p>
+  </div>
+
+  <div class="result-panel" id="resultPanel">
+    <p class="result-title">Así va la votación hasta ahora</p>
+    <div class="bar-row"><div class="bar-label"><span>💙 Team Niño</span><span id="pctNino">0%</span></div><div class="bar-track"><div class="bar-fill blue" id="fillNino"></div></div></div>
+    <div class="bar-row"><div class="bar-label"><span>💗 Team Niña</span><span id="pctNina">0%</span></div><div class="bar-track"><div class="bar-fill pink" id="fillNina"></div></div></div>
+    <p class="thanks" id="thanksMsg"></p>
+  </div>
+</div>
+
+<div class="section" id="s6">
+  <span class="extra-cloud pink ec1"></span>
+  <span class="extra-cloud blue ec2"></span>
+  <span class="extra-cloud blue ec3"></span>
+  <span class="extra-cloud pink ec4"></span>
+  <span class="extra-cloud pink ec5"></span>
+  <span class="extra-cloud blue ec6"></span>
+  <span class="extra-cloud blue ec7"></span>
+  <span class="extra-cloud pink ec8"></span>
+  <span class="extra-cloud pink ec9"></span>
+  <span class="extra-cloud blue ec10"></span>
+  <span class="extra-cloud blue ec11"></span>
+  <span class="extra-cloud pink ec12"></span>
+  <span class="extra-cloud blue ec13"></span>
+  <div class="divider"></div>
+
+  <span class="deco" style="top:6%;left:17%;"><img class="deco-img" src="" data-img="img6" alt=""></span>
+  <span class="deco" style="top:14%;right:7%;"><img class="deco-img deco-pink" src="" data-img="img8" alt=""></span>
+  <span class="deco" style="bottom:10%;left:8%;"><img class="deco-img deco-pink" src="" data-img="img8" alt=""></span>
+  <span class="deco" style="bottom:4%;right:20%;"><img class="deco-img" src="" data-img="img6" alt=""></span>
+
+  <div class="top-half">
+    <h1>Confirma tu asistencia</h1>
+    <p class="msg">Tu presencia hace este día aún más especial. ¡Esperamos contar contigo!</p>
+    <img class="envelope" src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 160'%3E%3Crect x='6' y='20' width='188' height='128' rx='14' fill='%23ffffff' stroke='%233f8fc9' stroke-width='5'/%3E%3Cpath d='M10 28 L100 96 L190 28' stroke='%233f8fc9' stroke-width='5' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3Cpath d='M100 74 C88 58 62 58 62 80 C62 98 100 118 100 118 C100 118 138 98 138 80 C138 58 112 58 100 74Z' fill='%23ec6e9a'/%3E%3C/svg%3E">
+    <a href="https://wa.me/18095551234?text=Confirmo%20mi%20asistencia%20al%20Baby%20Shower" class="whatsapp-btn" target="_blank">
+      <svg viewBox="0 0 32 32" fill="#fff"><path d="M16.001 3C9.373 3 4 8.373 4 15.001c0 2.386.7 4.607 1.902 6.475L4 29l7.72-1.868A11.94 11.94 0 0 0 16.001 27C22.629 27 28 21.629 28 15.001 28 8.373 22.629 3 16.001 3zm0 21.818c-1.94 0-3.75-.553-5.29-1.51l-.379-.226-4.583 1.11 1.146-4.463-.247-.393A9.77 9.77 0 0 1 5.182 15c0-5.977 4.842-10.818 10.819-10.818S26.818 9.023 26.818 15 21.978 24.818 16 24.818zm5.99-8.14c-.328-.164-1.94-.957-2.241-1.066-.301-.11-.52-.164-.739.164-.219.328-.848 1.066-1.04 1.285-.192.219-.383.246-.711.082-.328-.164-1.386-.511-2.64-1.63-.976-.87-1.635-1.945-1.827-2.273-.192-.328-.02-.505.144-.668.148-.147.328-.383.492-.575.164-.191.219-.328.328-.547.11-.219.055-.41-.027-.575-.082-.164-.739-1.782-1.013-2.44-.267-.64-.539-.554-.739-.564l-.629-.011c-.219 0-.575.082-.876.41-.301.328-1.148 1.122-1.148 2.736 0 1.613 1.176 3.172 1.34 3.39.164.219 2.316 3.536 5.611 4.958.784.339 1.396.54 1.873.692.787.25 1.503.215 2.07.13.631-.094 1.94-.793 2.213-1.559.273-.766.273-1.422.191-1.559-.082-.137-.301-.219-.629-.383z"/></svg>
+      Confirmar
+    </a>
+  </div>
+
+  <div class="bottom-half">
+    <p class="thanks-title">Gracias por ser parte<br>de esta hermosa historia</p>
+    <img class="hearts-img" src="" data-img="img15">
+    <div class="signature">
+      <p class="pre">Con mucho amor,</p>
+      <h2>Mamá y Papá</h2>
+    </div>
+    <p class="bye">Nos vemos pronto...</p>
+  </div>
+
+</div>
+</div>
+
+
+
+
+
+
+
+
+<script src="countdown.js"></script>
+<script type="module" src="votes.js"></script>
+<script src="images-loader.js"></script>
+<script src="music-modal.js"></script>
+</body>
+</html>
